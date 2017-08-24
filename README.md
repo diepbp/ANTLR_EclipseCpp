@@ -4,7 +4,7 @@ The input grammar is SMT-LIB2. You can find lexer and parser rules of SMT-LIB2 [
 Build a SMT-LIB2 parser in Eclipse-Cpp using ANTLR 
 ---------------------------------
 - Download the complete ANTLR Java binaries file [in the ANTLR official page](http://www.antlr.org/download.html).
-- Download ANTLR runtime example in [ANTLR Github](https://github.com/antlr/antlr4/tree/master/runtime/Cpp).
+- Download the ANTLR runtime example in [ANTLR Github](https://github.com/antlr/antlr4/tree/master/runtime/Cpp).
 - Follow the following instruction:
 ```
     cd /runtime/Cpp (this is where the ANTLR runtime example is located)
@@ -19,7 +19,7 @@ Build a SMT-LIB2 parser in Eclipse-Cpp using ANTLR
 	git clone https://github.com/diepbp/ANTLR_EclipseCpp.git
 ```	
 
-- Import the Eclipse project, or manually create it by adding files. If you manually create a project, remember to add include directory as well as library name and library directory. Normally, their values are "/usr/local/include/antlr4-runtime/", "antlr4-runtime" and "/usr/local/lib/" respectively.
+- Import the Eclipse project, or manually create a new one by adding files. If you manually create a project, remember to add the include directory, the library name and the library directory. Normally, their values are "/usr/local/include/antlr4-runtime/", "antlr4-runtime" and "/usr/local/lib/" respectively.
 
 Build your own parser
 ---------------------------------
