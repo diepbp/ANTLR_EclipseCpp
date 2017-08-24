@@ -9,7 +9,7 @@ Build Eclipse-Cpp project
 ```
     cd /runtime/Cpp (this is where the ANTLR runtime example is located)
     mkdir build && mkdir run && cd build
-    cmake .. -DANTLR_JAR_LOCATION=full/path/to/ANTLR_Java_binaries.jar -DWITH_DEMO=True
+    cmake .. 
     make
     make install
 ```
@@ -21,6 +21,22 @@ Build Eclipse-Cpp project
 
 - Import the Eclipse project, or manually create it by adding files. If you manually create a project, remember to add include directory as well as library name and library directory. Normally, their values are "/usr/local/include/antlr4-runtime/", "antlr4-runtime" and "/usr/local/lib/" respectively.
 
-Contact/ Bug Report
+Build your own parser
 ---------------------------------
-Feedback, questions or bug reports should go to [Bui Phi Diep](bui.phi-diep@it.uu.se).
+- Find/create your lexer and parser rules. Assuming that the lexer and parser file are yourLexer.g4 and yourParser.l4.
+- Update generate.sh in the demo folder. Note that your antlr jar file, yourLexer.g4 and yourParser.l4 should be in this folder.
+
+```
+	LOCATION=antlr-4.7-complete.jar
+	java -jar $LOCATION -Dlanguage=Cpp -listener -visitor -o generated/ -package antlrcpptest yourLexer.g4 yourParser.g4 
+	java -jar $LOCATION -Dlanguage=Cpp -listener -visitor -o generated/ -package antlrcpptest -XdbgST yourLexer.g4 yourParser.g4
+	java -jar $LOCATION -Dlanguage=Java -listener -visitor -o generated/ -package antlrcpptest yourLexer.g4 yourParser.g4
+	
+```
+- Run generate.sh
+- Add all generated files to the project above. Remove the old files from the project, except main.cpp. You also need to modify main.cpp.
+
+
+Contact
+---------------------------------
+Questions should go to [Bui Phi Diep](bui.phi-diep@it.uu.se).
