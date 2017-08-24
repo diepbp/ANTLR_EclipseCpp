@@ -36,6 +36,6 @@ Build your own parser
 - Add all generated files to the project above. Remove the old files from the project, except main.cpp. You also need to modify main.cpp.
 
 
-Contact
+Questions
 ---------------------------------
 Questions should go to [Bui Phi Diep](bui.phi-diep@it.uu.se).
