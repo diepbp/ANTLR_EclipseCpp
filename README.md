@@ -3,7 +3,7 @@ The input grammar is SMT-LIB2. You can find lexer and parser rules of SMT-LIB2 [
 
 Build Eclipse-Cpp project
 ---------------------------------
-- Download the complete ANTLR Java binaries file [in the official page](http://www.antlr.org/download.html).
+- Download the complete ANTLR Java binaries file [in the ANTLR official page](http://www.antlr.org/download.html).
 - Download ANTLR runtime example in [ANTLR Github](https://github.com/antlr/antlr4/tree/master/runtime/Cpp).
 - Follow the following instruction:
 ```
