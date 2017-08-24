@@ -31,7 +31,6 @@ Build your own parser
 	java -jar $LOCATION -Dlanguage=Cpp -listener -visitor -o generated/ -package antlrcpptest yourLexer.g4 yourParser.g4 
 	java -jar $LOCATION -Dlanguage=Cpp -listener -visitor -o generated/ -package antlrcpptest -XdbgST yourLexer.g4 yourParser.g4
 	java -jar $LOCATION -Dlanguage=Java -listener -visitor -o generated/ -package antlrcpptest yourLexer.g4 yourParser.g4
-	
 ```
 - Run generate.sh
 - Add all generated files to the project above. Remove the old files from the project, except main.cpp. You also need to modify main.cpp.
