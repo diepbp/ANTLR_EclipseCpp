@@ -1,7 +1,7 @@
 An example of using ANTLR in Eclipse CPP in Ubuntu.
 The input grammar is SMT-LIB2. You can find lexer and parser rules of SMT-LIB2 [here](http://smt-front-end.readthedocs.io/en/latest/smtv2.html).
 
-Build Eclipse-Cpp project
+Build a SMT-LIB2 parser in Eclipse-Cpp using ANTLR 
 ---------------------------------
 - Download the complete ANTLR Java binaries file [in the ANTLR official page](http://www.antlr.org/download.html).
 - Download ANTLR runtime example in [ANTLR Github](https://github.com/antlr/antlr4/tree/master/runtime/Cpp).
