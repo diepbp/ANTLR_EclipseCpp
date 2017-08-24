@@ -1,10 +1,10 @@
 /* lexer header section */
 
-// Generated from /home/osboxes/Documents/antlr4-4.7/runtime/Cpp/demo/TLexer.g4 by ANTLR 4.7
+// Generated from SMTLIB2Lexer.g4 by ANTLR 4.7
 
 /* lexer precinclude section */
 
-#include "TLexer.h"
+#include "SMTLIB2Lexer.h"
 
 
 /* lexer postinclude section */
@@ -17,49 +17,49 @@ using namespace antlr4;
 
 using namespace antlrcpptest;
 
-TLexer::TLexer(CharStream *input) : Lexer(input) {
+SMTLIB2Lexer::SMTLIB2Lexer(CharStream *input) : Lexer(input) {
   _interpreter = new atn::LexerATNSimulator(this, _atn, _decisionToDFA, _sharedContextCache);
 }
 
-TLexer::~TLexer() {
+SMTLIB2Lexer::~SMTLIB2Lexer() {
   delete _interpreter;
 }
 
-std::string TLexer::getGrammarFileName() const {
-  return "TLexer.g4";
+std::string SMTLIB2Lexer::getGrammarFileName() const {
+  return "SMTLIB2Lexer.g4";
 }
 
-const std::vector<std::string>& TLexer::getRuleNames() const {
+const std::vector<std::string>& SMTLIB2Lexer::getRuleNames() const {
   return _ruleNames;
 }
 
-const std::vector<std::string>& TLexer::getChannelNames() const {
+const std::vector<std::string>& SMTLIB2Lexer::getChannelNames() const {
   return _channelNames;
 }
 
-const std::vector<std::string>& TLexer::getModeNames() const {
+const std::vector<std::string>& SMTLIB2Lexer::getModeNames() const {
   return _modeNames;
 }
 
-const std::vector<std::string>& TLexer::getTokenNames() const {
+const std::vector<std::string>& SMTLIB2Lexer::getTokenNames() const {
   return _tokenNames;
 }
 
-dfa::Vocabulary& TLexer::getVocabulary() const {
+dfa::Vocabulary& SMTLIB2Lexer::getVocabulary() const {
   return _vocabulary;
 }
 
-const std::vector<uint16_t> TLexer::getSerializedATN() const {
+const std::vector<uint16_t> SMTLIB2Lexer::getSerializedATN() const {
   return _serializedATN;
 }
 
-const atn::ATN& TLexer::getATN() const {
+const atn::ATN& SMTLIB2Lexer::getATN() const {
   return _atn;
 }
 
 /* lexer definitions section */
 
-void TLexer::action(RuleContext *context, size_t ruleIndex, size_t actionIndex) {
+void SMTLIB2Lexer::action(RuleContext *context, size_t ruleIndex, size_t actionIndex) {
   switch (ruleIndex) {
     case 90: WSAction(dynamic_cast<antlr4::RuleContext *>(context), actionIndex); break;
     case 93: COMMENTAction(dynamic_cast<antlr4::RuleContext *>(context), actionIndex); break;
@@ -69,7 +69,7 @@ void TLexer::action(RuleContext *context, size_t ruleIndex, size_t actionIndex) 
   }
 }
 
-void TLexer::WSAction(antlr4::RuleContext *context, size_t actionIndex) {
+void SMTLIB2Lexer::WSAction(antlr4::RuleContext *context, size_t actionIndex) {
   switch (actionIndex) {
     case 0: skip(); break;
 
@@ -78,7 +78,7 @@ void TLexer::WSAction(antlr4::RuleContext *context, size_t actionIndex) {
   }
 }
 
-void TLexer::COMMENTAction(antlr4::RuleContext *context, size_t actionIndex) {
+void SMTLIB2Lexer::COMMENTAction(antlr4::RuleContext *context, size_t actionIndex) {
   switch (actionIndex) {
     case 1: skip(); break;
 
@@ -90,14 +90,14 @@ void TLexer::COMMENTAction(antlr4::RuleContext *context, size_t actionIndex) {
 
 
 // Static vars and initialization.
-std::vector<dfa::DFA> TLexer::_decisionToDFA;
-atn::PredictionContextCache TLexer::_sharedContextCache;
+std::vector<dfa::DFA> SMTLIB2Lexer::_decisionToDFA;
+atn::PredictionContextCache SMTLIB2Lexer::_sharedContextCache;
 
 // We own the ATN which in turn owns the ATN states.
-atn::ATN TLexer::_atn;
-std::vector<uint16_t> TLexer::_serializedATN;
+atn::ATN SMTLIB2Lexer::_atn;
+std::vector<uint16_t> SMTLIB2Lexer::_serializedATN;
 
-std::vector<std::string> TLexer::_ruleNames = {
+std::vector<std::string> SMTLIB2Lexer::_ruleNames = {
   u8"SYM_AND", u8"SYM_OR", u8"SYM_NOT", u8"SYM_BOOL", u8"SYM_CONTINUED_EXECUTION", 
   u8"SYM_ERROR", u8"SYM_FALSE", u8"SYM_IMMEDIATE_EXIT", u8"SYM_INCOMPLETE", 
   u8"SYM_LOGIC", u8"SYM_MEMOUT", u8"SYM_SAT", u8"SYM_SUCCESS", u8"SYM_THEORY", 
@@ -125,15 +125,15 @@ std::vector<std::string> TLexer::_ruleNames = {
   u8"QUOTED_SYM", u8"COMMENT", u8"KEYWORD_TOKEN", u8"OpenPar", u8"ClosePar"
 };
 
-std::vector<std::string> TLexer::_channelNames = {
+std::vector<std::string> SMTLIB2Lexer::_channelNames = {
   "DEFAULT_TOKEN_CHANNEL", "HIDDEN", u8"CommentsChannel", u8"DirectiveChannel"
 };
 
-std::vector<std::string> TLexer::_modeNames = {
+std::vector<std::string> SMTLIB2Lexer::_modeNames = {
   u8"DEFAULT_MODE"
 };
 
-std::vector<std::string> TLexer::_literalNames = {
+std::vector<std::string> SMTLIB2Lexer::_literalNames = {
   "", "", u8"'and'", u8"'or'", u8"'not'", u8"'Bool'", u8"'continued-execution'", 
   u8"'error'", u8"'false'", u8"'immediate-exit'", u8"'incomplete'", u8"'logic'", 
   u8"'memout'", u8"'sat'", u8"'success'", u8"'theory'", u8"'true'", u8"'unknown'", 
@@ -155,7 +155,7 @@ std::vector<std::string> TLexer::_literalNames = {
   "", "", "", "", "", "", "", "", "", "", u8"'('", u8"')'"
 };
 
-std::vector<std::string> TLexer::_symbolicNames = {
+std::vector<std::string> SMTLIB2Lexer::_symbolicNames = {
   "", u8"DUMMY", u8"SYM_AND", u8"SYM_OR", u8"SYM_NOT", u8"SYM_BOOL", u8"SYM_CONTINUED_EXECUTION", 
   u8"SYM_ERROR", u8"SYM_FALSE", u8"SYM_IMMEDIATE_EXIT", u8"SYM_INCOMPLETE", 
   u8"SYM_LOGIC", u8"SYM_MEMOUT", u8"SYM_SAT", u8"SYM_SUCCESS", u8"SYM_THEORY", 
@@ -183,11 +183,11 @@ std::vector<std::string> TLexer::_symbolicNames = {
   u8"ClosePar"
 };
 
-dfa::Vocabulary TLexer::_vocabulary(_literalNames, _symbolicNames);
+dfa::Vocabulary SMTLIB2Lexer::_vocabulary(_literalNames, _symbolicNames);
 
-std::vector<std::string> TLexer::_tokenNames;
+std::vector<std::string> SMTLIB2Lexer::_tokenNames;
 
-TLexer::Initializer::Initializer() {
+SMTLIB2Lexer::Initializer::Initializer() {
   // This code could be in a static initializer lambda, but VS doesn't allow access to private class members from there.
 	for (size_t i = 0; i < _symbolicNames.size(); ++i) {
 		std::string name = _vocabulary.getLiteralName(i);
@@ -973,4 +973,4 @@ TLexer::Initializer::Initializer() {
   }
 }
 
-TLexer::Initializer TLexer::_init;
+SMTLIB2Lexer::Initializer SMTLIB2Lexer::_init;

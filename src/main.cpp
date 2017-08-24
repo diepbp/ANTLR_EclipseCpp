@@ -13,22 +13,22 @@
 #include <iostream>
 
 #include "antlr4-runtime.h"
-#include "TLexer.h"
-#include "TParser.h"
-#include "TParserVisitor.h"
-#include "TParserListener.h"
-#include "TParserBaseVisitor.h"
-#include "TParserBaseListener.h"
+#include "SMTLIB2Lexer.h"
+#include "SMTLIB2Parser.h"
+#include "SMTLIB2ParserVisitor.h"
+#include "SMTLIB2ParserListener.h"
+#include "SMTLIB2ParserBaseVisitor.h"
+#include "SMTLIB2ParserBaseListener.h"
 using namespace antlrcpptest;
 using namespace antlr4;
 
 
 
-class TreeShapeListener : public TParserBaseListener {
+class TreeShapeListener : public SMTLIB2ParserBaseListener {
     public:
         
-    void enterCommand(TParser::CommandContext *ctx) override {
-        std::cout << "visit CommandContext\n";
+    void enterCommand(SMTLIB2Parser::CommandContext *ctx) override {
+        std::cout << "\nvisit CommandContext\n";
         std::vector<tree::ParseTree*> children = ctx->children;
         for (const auto& child : children) {
             visit(child);
@@ -54,14 +54,10 @@ class TreeShapeListener : public TParserBaseListener {
 
 int main(int , const char **) {
     ANTLRFileStream input("input.smt2");
-    TLexer lexer(&input);
+    SMTLIB2Lexer lexer(&input);
     CommonTokenStream tokens(&lexer);
-//    tokens.fill();
-//    for (auto token : tokens.getTokens()) {
-//        std::cout << token->toString() << token->getText() << token->getType() << std::endl;
-//    }
     
-    TParser parser(&tokens);
+    SMTLIB2Parser parser(&tokens);
     tree::ParseTree *tree = parser.script();
     TreeShapeListener listener;
     tree::ParseTreeWalker::DEFAULT.walk(&listener, tree);

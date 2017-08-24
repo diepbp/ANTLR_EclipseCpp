@@ -1,6 +1,6 @@
 /* parser/listener/visitor header section */
 
-// Generated from /home/osboxes/Documents/antlr4-4.7/runtime/Cpp/demo/TParser.g4 by ANTLR 4.7
+// Generated from SMTLIB2Parser.g4 by ANTLR 4.7
 
 #pragma once
 
@@ -19,7 +19,7 @@ namespace antlrcpptest {
 
 /* parser context section */
 
-class  TParser : public antlr4::Parser {
+class  SMTLIB2Parser : public antlr4::Parser {
 public:
   enum {
     DUMMY = 1, SYM_AND = 2, SYM_OR = 3, SYM_NOT = 4, SYM_BOOL = 5, SYM_CONTINUED_EXECUTION = 6, 
@@ -64,8 +64,8 @@ public:
     RuleGet_assignment_response = 39, RuleGet_option_response = 40
   };
 
-  TParser(antlr4::TokenStream *input);
-  ~TParser();
+  SMTLIB2Parser(antlr4::TokenStream *input);
+  ~SMTLIB2Parser();
 
   virtual std::string getGrammarFileName() const override;
   virtual const antlr4::atn::ATN& getATN() const override { return _atn; };

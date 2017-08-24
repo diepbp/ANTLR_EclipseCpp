@@ -1,6 +1,6 @@
 /* lexer header section */
 
-// Generated from /home/osboxes/Documents/antlr4-4.7/runtime/Cpp/demo/TLexer.g4 by ANTLR 4.7
+// Generated from SMTLIB2Lexer.g4 by ANTLR 4.7
 
 #pragma once
 
@@ -19,7 +19,7 @@ namespace antlrcpptest {
 
 /* lexer context section */
 
-class  TLexer : public antlr4::Lexer {
+class  SMTLIB2Lexer : public antlr4::Lexer {
 public:
   enum {
     DUMMY = 1, SYM_AND = 2, SYM_OR = 3, SYM_NOT = 4, SYM_BOOL = 5, SYM_CONTINUED_EXECUTION = 6, 
@@ -53,8 +53,8 @@ public:
     CommentsChannel = 2, DirectiveChannel = 3
   };
 
-  TLexer(antlr4::CharStream *input);
-  ~TLexer();
+  SMTLIB2Lexer(antlr4::CharStream *input);
+  ~SMTLIB2Lexer();
 
   /* public lexer declarations section */
   bool canTestFoo() { return true; }
