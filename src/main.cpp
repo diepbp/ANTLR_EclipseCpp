@@ -12,44 +12,15 @@
 
 #include <iostream>
 
+#include <vector>
 #include "antlr4-runtime.h"
 #include "SMTLIB2Lexer.h"
 #include "SMTLIB2Parser.h"
-#include "SMTLIB2ParserVisitor.h"
-#include "SMTLIB2ParserListener.h"
 #include "SMTLIB2ParserBaseVisitor.h"
 #include "SMTLIB2ParserBaseListener.h"
+#include "SMTLIB2TrauListener.h"
 using namespace antlrcpptest;
 using namespace antlr4;
-
-
-
-class TreeShapeListener : public SMTLIB2ParserBaseListener {
-    public:
-        
-    void enterCommand(SMTLIB2Parser::CommandContext *ctx) override {
-        std::cout << "\nvisit CommandContext\n";
-        std::vector<tree::ParseTree*> children = ctx->children;
-        for (const auto& child : children) {
-            visit(child);
-        }
-    }
-
-    private:
-    void visit(tree::ParseTree* node) {
-        if (node->children.size() == 0) {
-            auto tmp = dynamic_cast<tree::TerminalNodeImpl*>(node);
-            std::cout << tmp->toStringTree() << "_" << tmp->getSymbol()->getType() << "\t";
-        }
-        else {
-            std::vector<tree::ParseTree*> children = node->children;
-            for (const auto& child : children) {
-                visit(child);
-            }
-        }
-    }
-};
-
 
 
 int main(int , const char **) {
@@ -59,8 +30,14 @@ int main(int , const char **) {
     
     SMTLIB2Parser parser(&tokens);
     tree::ParseTree *tree = parser.script();
-    TreeShapeListener listener;
+    SMTLIB2TrauListener listener;
     tree::ParseTreeWalker::DEFAULT.walk(&listener, tree);
     
+    for (const auto& tokens : listener.smtTokens) {
+    	for (const auto &lineToken : tokens) {
+    		printf("%s - %d \t", lineToken.first.c_str(), lineToken.second);
+    	}
+    	printf("\n");
+    }
     return 0;
 }

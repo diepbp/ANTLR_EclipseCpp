@@ -23,7 +23,7 @@ Build a SMT-LIB2 parser in Eclipse-Cpp using ANTLR
 
 Build your own parser
 ---------------------------------
-- Find/create your lexer and parser rules. Assuming that the lexer and parser file are yourLexer.g4 and yourParser.g4.
+- Find/create your lexer and parser rules. Assuming that the lexer and parser files are yourLexer.g4 and yourParser.g4.
 - Update generate.sh in the /runtime/Cpp/demo folder. Note that your antlr jar file, yourLexer.g4 and yourParser.g4 should be in this folder.
 
 ```
@@ -34,8 +34,3 @@ Build your own parser
 ```
 - Run generate.sh
 - Add all generated files to the project above. Remove the old files from the project, except main.cpp. You also need to modify main.cpp.
-
-
-Questions
----------------------------------
-Questions should go to [Bui Phi Diep](bui.phi-diep@it.uu.se).
