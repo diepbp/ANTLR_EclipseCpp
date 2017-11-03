@@ -1,12 +1,12 @@
 /*
- * SMTLIB2TrauListener.h
+ * SMTLIB2TermListener.h
  *
  *  Created on: 23 Oct 2017
  *      Author: osboxes
  */
 
-#ifndef SMTLIB2TRAULISTENER_H_
-#define SMTLIB2TRAULISTENER_H_
+#ifndef SMTLIB2TERMLISTENER_H_
+#define SMTLIB2TERMLISTENER_H_
 
 #include <vector>
 #include "antlr4-runtime.h"
@@ -17,18 +17,18 @@
 using namespace antlrcpptest;
 using namespace antlr4;
 
-class SMTLIB2TrauListener : public SMTLIB2ParserBaseListener {
+class SMTLIB2TermListener : public SMTLIB2ParserBaseListener {
     public:
 	std::vector<std::vector<std::pair<std::string, int>>> smtTokens;
 
-    void enterCommand(SMTLIB2Parser::CommandContext *ctx) override {
-    	/* "\nvisit CommandContext\n" */
-        std::vector<tree::ParseTree*> children = ctx->children;
-        std::vector<std::pair<std::string, int>> lineTokens;
-        for (const auto& child : children) {
-            visit(child, lineTokens);
-        }
-        smtTokens.push_back(lineTokens);
+    void enterTerm(SMTLIB2Parser::TermContext *ctx) override {
+    	/* "\nvisit TermContext\n" */
+    	std::vector<tree::ParseTree*> children = ctx->children;
+    	std::vector<std::pair<std::string, int>> lineTokens;
+    	for (const auto& child : children) {
+    		visit(child, lineTokens);
+    	}
+    	smtTokens.push_back(lineTokens);
     }
 
     private:
@@ -48,4 +48,4 @@ class SMTLIB2TrauListener : public SMTLIB2ParserBaseListener {
 
 
 
-#endif /* SMTLIB2TRAULISTENER_H_ */
+#endif /* SMTLIB2TERMLISTENER_H_ */

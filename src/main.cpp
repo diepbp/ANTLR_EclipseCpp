@@ -18,26 +18,47 @@
 #include "SMTLIB2Parser.h"
 #include "SMTLIB2ParserBaseVisitor.h"
 #include "SMTLIB2ParserBaseListener.h"
-#include "SMTLIB2TrauListener.h"
+#include "SMTLIB2ScriptListener.h"
+#include "SMTLIB2TermListener.h"
 using namespace antlrcpptest;
 using namespace antlr4;
 
 
+void parseTerm(){
+	ANTLRInputStream input("(assert (ite (not (= index (- 0 1))) (and (and (= len_$$_str4 index) (= str1 (+ (* (- 1) index) (Length a)))) (= index1 len_$$_str7) (ite (= index1 (- 0 1)) (and (= index2 len_$$_str9) (and (= len_$$_str14 (+ 1 index2)) (= sli (+ (* (- 1) (+ 1 index2)) (Length str1))))) (and (= index2 len_$$_str9) (= sli (Substring str1 (+ index2 1) (- index1 (+ index2 1))))))) (= sli 0)))");
+	SMTLIB2Lexer lexer(&input);
+	CommonTokenStream tokens(&lexer);
+
+	SMTLIB2Parser parser(&tokens);
+	tree::ParseTree *tree = parser.term();
+	SMTLIB2TermListener listener;
+	tree::ParseTreeWalker::DEFAULT.walk(&listener, tree);
+
+	for (const auto &lineToken : listener.smtTokens[0]) {
+		printf("%s - %d \t", lineToken.first.c_str(), lineToken.second);
+	}
+}
+
+void parseFile(){
+	ANTLRFileStream input("input.smt2");
+	SMTLIB2Lexer lexer(&input);
+	CommonTokenStream tokens(&lexer);
+
+	SMTLIB2Parser parser(&tokens);
+	tree::ParseTree *tree = parser.script();
+	SMTLIB2ScriptListener listener;
+	tree::ParseTreeWalker::DEFAULT.walk(&listener, tree);
+
+	for (const auto& tokens : listener.smtTokens) {
+		for (const auto &lineToken : tokens) {
+			printf("%s - %d \t", lineToken.first.c_str(), lineToken.second);
+		}
+		printf("\n");
+	}
+}
+
 int main(int , const char **) {
-    ANTLRFileStream input("input.smt2");
-    SMTLIB2Lexer lexer(&input);
-    CommonTokenStream tokens(&lexer);
-    
-    SMTLIB2Parser parser(&tokens);
-    tree::ParseTree *tree = parser.script();
-    SMTLIB2TrauListener listener;
-    tree::ParseTreeWalker::DEFAULT.walk(&listener, tree);
-    
-    for (const auto& tokens : listener.smtTokens) {
-    	for (const auto &lineToken : tokens) {
-    		printf("%s - %d \t", lineToken.first.c_str(), lineToken.second);
-    	}
-    	printf("\n");
-    }
+	parseFile();
+//	parseTerm();
     return 0;
 }
